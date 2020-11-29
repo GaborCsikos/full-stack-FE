@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from '../entity/todo';
 
 @Component({
   selector: 'app-add-todo',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTodoComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+  todo: Todo;
+
+  constructor(
+  ) { }
 
   ngOnInit() {
   }
+
+  saveTodo() {
+  }
+
 
 }

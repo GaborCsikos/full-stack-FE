@@ -1,1 +1,30 @@
-<p>add-todo works!</p>
+
+<div class="container">
+  
+  <form (ngSubmit)="saveTodo()">
+    <fieldset class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="todo.name" class="form-control" >
+      </fieldset>
+    
+    <fieldset class="form-group">
+      <label>Description</label>
+      <input type="text" [(ngModel)]="todo.description" class="form-control" >
+    </fieldset>
+
+    <fieldset class="form-group">
+        <div class="radio">
+            <label><input type="radio" name="optradio" checked>LOW</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="optradio">MEDIUM</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="optradio">HIGH</label>
+          </div>
+      </fieldset>
+
+    <button type="submit" class="btn btn-success ">Save</button>
+  </form>  
+</div>
+

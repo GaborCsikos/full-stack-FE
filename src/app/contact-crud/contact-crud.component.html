@@ -1,0 +1,60 @@
+<div class="container">
+    <h2 class="jumbotron">Contacts</h2>
+    <button type="button" class="btn btn-primary" (click)="addContact()">Add
+      </button>
+    <table class="table table-striped">
+      <thead class="thread-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Value</th>
+          <th scope="col">Type</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{contact.name}}</td>
+          <td>{{contact.value}}</td>
+          <td>{{contact.type}}</td>
+          <td><button type="button" class="btn btn-default btn-sm" (click)="editContact(contact)">
+            <span class="glyphicon glyphicon-edit"></span> Edit
+          </button></td>
+          <td><button type="button" class="btn btn-default btn-sm" (click)="deleteContact(contact)">
+            <span class="glyphicon glyphicon-trash"></span> Delete 
+          </button></td>
+        </tr>
+      </tbody>
+    </table>
+        
+    <ng-container *ngIf="contact">
+      <h2 class="py-4">Edit</h2>
+      <form [formGroup]="contact">
+        <div class="form-group row">
+          <label for="brand" class="col-sm-2 col-form-label">Contact name:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="name" formControlName="name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="model" class="col-sm-2 col-form-label">Contact value:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="value" formControlName="value">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="year" class="col-sm-2 col-form-label">Contact type:</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="type" formControlName="type">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-4 offset-sm-2">
+            <button type="submit" class="btn btn-primary mr-2" (click)="saveContact()">Save</button>
+            <button type="reset" class="btn btn-outline-primary" (click)="cancelContact()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
